@@ -83,12 +83,12 @@ owasp.sat.agoat (run) on (Android: 14) [usb] #
 ```shell
 adb shell am start -n owasp.sat.agoat/.AccessControl1ViewActivity
 ```
-![[imgs/{B1387DF8-615F-4A5A-A81F-064A2B946AE1}.png]]
+![скрин](imgs/{B1387DF8-615F-4A5A-A81F-064A2B946AE1}.png)
 
 # Insecure Data Storage
 ## Part 1
 Просто cat по файлу:
-![[imgs/{10E83026-0565-4557-A919-64CD62221B71}.png]]
+![скрин](imgs/{10E83026-0565-4557-A919-64CD62221B71}.png)
 
 ## Part 2
 Пишем в `sheredPreferences`:
@@ -97,7 +97,7 @@ sed -i '/name="score"/s/value="[0-9]*"/value="100"/' score.xml
 ```
 
 Перезапускаем МП и видим решенное
-![[imgs/{195859C6-4D97-4261-8261-89DF6A1327B4}.png]]
+![скрин](imgs/{195859C6-4D97-4261-8261-89DF6A1327B4}.png)
 
 ## Part 3
 
@@ -120,7 +120,7 @@ select * from user_pins;
 ## Part 4
 
 Тут все просто, когда мы нажимаем кнопку `Verify`, то мы сохраняем наш user+pass в мп:
-![[imgs/{0C2C7557-26D6-401D-93A0-4C455A8B69DE}.png]]
+![скрин](imgs/{0C2C7557-26D6-401D-93A0-4C455A8B69DE}.png)
 ## Part 5
 
 После нажатия на кнопку `Verify` сохраняется в хранилище sd-карты. Мы должны перейти в нее и искать уже по ней.
@@ -156,21 +156,21 @@ qw' OR 1==1;
 Чтобы защититься от этого необходимо использовать `android:inputType="textPassword"` + `android:importantForAutofill="no"` + `android:privateImeOptions="nm"` (для некоторых клавиатур)
 
 ## Insecure Logging
-![[imgs/{B541B3FE-5C15-486A-8291-28E7D603A348}.png]]
+![скрин](imgs/{B541B3FE-5C15-486A-8291-28E7D603A348}.png)
 
 После ввода в поля и нажатии на кнопку, посмотрим на логи с помощью команды `adb logcat`:
 ```bash
 adb logcat | grep -i "owasp\|androgoat\|password\|username"
 ```
 
-![[imgs/{6788F188-E0EF-44BE-9942-F5D90234BF24}.png]]
+![скрин](imgs/{6788F188-E0EF-44BE-9942-F5D90234BF24}.png)
 
 ## Clipboard
-![[imgs/{7540B9DE-02C1-4DEA-8C7F-6D80C9CB3D5E}.png]]
+![скрин](imgs/{7540B9DE-02C1-4DEA-8C7F-6D80C9CB3D5E}.png)
 
 Приложение позволяет копировать чувствительные данные в буфер обмена. Любое другое приложение на устройстве может прочитать этот буфер.
 
-![[imgs/{FF6AFE77-CD3D-4605-AAE3-8BE0A034568F}.png]]
+![скрин](imgs/{FF6AFE77-CD3D-4605-AAE3-8BE0A034568F}.png)
 
 Пишем фрида-скрипт:
 ```js
@@ -193,10 +193,10 @@ Java.perform(function () {
 
 # Root detection
 Можно сразу отрубить с помощью `objection`:
-![[imgs/{80A9C134-3981-4DE2-8BEB-28037A3A88B5}.png]]
+![скрин](imgs/{80A9C134-3981-4DE2-8BEB-28037A3A88B5}.png)
 
 А можно посмотреть код:
-![[imgs/{02F692BD-64EA-46CD-AAC1-31CAC440F009}.png]]
+![скрин](imgs/{02F692BD-64EA-46CD-AAC1-31CAC440F009}.png)
 Увидеть, что возвращаются логические переменные в функциях, изменить их возврат для прохождения рута.
 ```js
 Java.perform(function(){
@@ -209,7 +209,7 @@ Java.perform(function(){
     };
 });
 ```
-![[imgs/{2EC64C2B-7C9D-4A44-9D4D-7222005D815D}.png]]
+![скрин](imgs/{2EC64C2B-7C9D-4A44-9D4D-7222005D815D}.png)
 
 # Emulator detection
 Напишем скрипт для 'frida'
@@ -224,14 +224,14 @@ Java.perform(function(){
     };
 });
 ```
-![[imgs/{CC55E585-F8B3-4855-AF18-3EF0E34B6E35}.png]]
+![скрин](imgs/{CC55E585-F8B3-4855-AF18-3EF0E34B6E35}.png)
 
 
 # Binary Patching
-![[imgs/{17847161-8723-420D-A053-9110ED94D30E}.png]]
+![скрин](imgs/{17847161-8723-420D-A053-9110ED94D30E}.png)
 
 По коду видим, что есть проверка на админский функционал:
-![[imgs/{3F188846-70D9-4E70-BC90-89FDED3DB213}.png]]
+![скрин](imgs/{3F188846-70D9-4E70-BC90-89FDED3DB213}.png)
 
 Попробуем напрямую изменить состояние на `true`:
 ```js
@@ -249,7 +249,7 @@ Java.perform(function(){
 
 И у нас получилось!
 
-![[imgs/{80089C15-DC41-4FAE-BBE6-9216E4BB7E29}.png]]
+![скрин](imgs/{80089C15-DC41-4FAE-BBE6-9216E4BB7E29}.png)
 
 # Biometric auth
 
