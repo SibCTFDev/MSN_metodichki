@@ -4,6 +4,7 @@
 - [Теория](#-Теория)
 - [Установка инструментов](#-Установка-инструментов)
 - [Android Workflow](#-Android-Workflow)
+- [Ссылки](#-Ссылки)
 
 ## 🚀 Prerequisites
 
@@ -290,3 +291,11 @@ jadx -d diva_source DivaApplication.apk
 # Только исходный код (без ресурсов)
 jadx -d diva_source --deobf DivaApplication.apk
 ```
+
+## 📚 Ссылки
+
+- [DIVA GitHub](https://github.com/dpnisankalangila/DIVA-Deliberately-Insecure-Android-App) - исходный код учебных уязвимостей
+- [PortSwigger Android Security](https://portswigger.net/web-security/mobile) - мобильная безопасность
+- [OWASP MASVS](https://mas.owasp.org/MASVS/) - Mobile Application Security Verification Standard
+- [Android Security Documentation](https://developer.android.com/privacy-and-security) - официальная документация
+- [Android Emulator CLI](https://developer.android.com/studio/run/emulator-commandline) - запуск эмулятора из командной строки
