@@ -7,18 +7,18 @@ DIVA - учебное приложение с 13 лабораторными ра
 | # | Задание | Класс(ы) | Тип уязвимости |
 |---|---|---|---|
 | [d1](#пример-1-insecure-logging-d1) | Insecure Logging | `LogActivity` | Логирование CC в logcat |
-| d2 | Hardcode Issues Part 1 | `HardcodeActivity` | Секрет захардкожен в Java |
-| d3 | Insecure Data Storage Part 1 | `InsecureDataStorage1Activity` | SharedPreferences plaintext |
-| d4 | Insecure Data Storage Part 2 | `InsecureDataStorage2Activity` | SQLite без шифрования + SQL-инъекция в INSERT |
-| d5 | Insecure Data Storage Part 3 | `InsecureDataStorage3Activity` | Файл temp в dataDir |
-| d6 | Insecure Data Storage Part 4 | `InsecureDataStorage4Activity` | Файл на external storage |
-| d7 | SQL Injection | `SQLInjectionActivity` | SQL-инъекция через rawQuery |
-| d8 | Input Validation Part 2 | `InputValidation2URISchemeActivity` | WebView + arbitrary URI |
-| d9 | Access Control Part 1 | `AccessControl1Activity` -> `APICredsActivity` | Hardcoded API-креды через implicit intent |
-| d10 | Access Control Part 2 | `APICreds2Activity` | PIN-флаг из intent extra (`check_pin`) контролируется вызывающим |
-| d11 | Access Control Part 3 | `AccessControl3Activity` + `AccessControl3NotesActivity` + `NotesProvider` | PIN в plaintext + exported ContentProvider |
-| d12 | Hardcode Issues Part 2 | `Hardcode2Activity` + `DivaJni` | Секрет в нативной библиотеке (.so) |
-| d13 | Input Validation Part 3 | `InputValidation3Activity` + `DivaJni` | Проверка пароля в нативной библиотеке |
+| [d2](#пример-2-hardcoding-issues-d2) | Hardcode Issues Part 1 | `HardcodeActivity` | Секрет захардкожен в Java |
+| [d3](#пример-3-insecure-data-storage-part-1-d3) | Insecure Data Storage Part 1 | `InsecureDataStorage1Activity` | SharedPreferences plaintext |
+| [d4](#пример-4-insecure-data-storage-part-2-d4) | Insecure Data Storage Part 2 | `InsecureDataStorage2Activity` | SQLite без шифрования + SQL-инъекция в INSERT |
+| [d5](#пример-5-insecure-data-storage-part-3-d5) | Insecure Data Storage Part 3 | `InsecureDataStorage3Activity` | Файл temp в dataDir |
+| [d6](#пример-6-insecure-data-storage-part-4-d6) | Insecure Data Storage Part 4 | `InsecureDataStorage4Activity` | Файл на external storage |
+| [d7](#пример-7-sql-injection-d7) | SQL Injection | `SQLInjectionActivity` | SQL-инъекция через rawQuery |
+| [d8](#пример-8-input-validation-part-2-d8) | Input Validation Part 2 | `InputValidation2URISchemeActivity` | WebView + arbitrary URI |
+| [d9](#пример-9-access-control-part-1-d9) | Access Control Part 1 | `AccessControl1Activity` -> `APICredsActivity` | Hardcoded API-креды через implicit intent |
+| [d10](#пример-10-access-control-part-2-d10) | Access Control Part 2 | `APICreds2Activity` | PIN-флаг из intent extra (`check_pin`) контролируется вызывающим |
+| [d11](#пример-11-access-control-part-3-d11) | Access Control Part 3 | `AccessControl3Activity` + `AccessControl3NotesActivity` + `NotesProvider` | PIN в plaintext + exported ContentProvider |
+| [d12](#пример-12-hardcode-issues-part-2---jni-d12) | Hardcode Issues Part 2 | `Hardcode2Activity` + `DivaJni` | Секрет в нативной библиотеке (.so) |
+| [d13](#пример-13-input-validation-part-3-d13) | Input Validation Part 3 | `InputValidation3Activity` + `DivaJni` | Проверка пароля в нативной библиотеке |
 
 #### Пример 1: Insecure Logging (d1)
 
