@@ -1,9 +1,9 @@
 # Занятие 1. Анализ безопасности Android-приложений
 
 - [Prerequisites](#Prerequisites)
-- [Теория](#Теория)
-- [Установка инструментов](#Установка_инструментов)
-- [Android Workflow](#Android_Workflow)
+- [Теория](#-Теория)
+- [Установка инструментов](#-Установка-инструментов)
+- [Android Workflow](#-Android-Workflow)
 
 ## 🚀 Prerequisites
 
