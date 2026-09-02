@@ -1,6 +1,7 @@
 # Занятие 1. Анализ безопасности Android-приложений
 
-- [Prerequisites](#-prerequisites)
+## 🧭 Навигация
+
 - [Теория](#-Теория)
 - [Установка инструментов](#-Установка-инструментов)
 - [Android Workflow](#-Android-Workflow)
@@ -16,7 +17,7 @@
 - APK-файл для анализа (DIVA или другой)
 
 ---
-
+<a id="-Теория"></a>
 ## 📖 Теория
 
 ### Устройство системы Android
@@ -102,6 +103,7 @@ C:\Users\%USERNAME%\AppData\Local\Android\Sdk\emulator\emulator -avd <назва
 
 ---
 
+<a id="-Установка-инструментов"></a>
 ## 📦 Установка инструментов
 
 ### jadx / jadx-gui
@@ -153,7 +155,7 @@ adb start-server     # запустить ADB-сервер
 ```
 
 ---
-
+<a id="-Android-Workflow"></a>
 ## 🚀 Android Workflow
 
 ### 1. Создание эмулятора с root-правами
@@ -291,7 +293,7 @@ jadx -d diva_source DivaApplication.apk
 # Только исходный код (без ресурсов)
 jadx -d diva_source --deobf DivaApplication.apk
 ```
-
+<a id="-Ссылки"></a>
 ## 📚 Ссылки
 
 - [DIVA GitHub](https://github.com/dpnisankalangila/DIVA-Deliberately-Insecure-Android-App) - исходный код учебных уязвимостей
@@ -299,3 +301,33 @@ jadx -d diva_source --deobf DivaApplication.apk
 - [OWASP MASVS](https://mas.owasp.org/MASVS/) - Mobile Application Security Verification Standard
 - [Android Security Documentation](https://developer.android.com/privacy-and-security) - официальная документация
 - [Android Emulator CLI](https://developer.android.com/studio/run/emulator-commandline) - запуск эмулятора из командной строки
+  
+<style>
+pre {
+  padding: 12px 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+html[data-bs-theme="light"] pre {
+  background: #f5f5f5 !important;
+  border: 1px solid #ddd;
+}
+html[data-bs-theme="light"] pre code {
+  color: #24292e;
+  background: transparent;
+}
+
+html[data-bs-theme="dark"] pre {
+  background: #1e1e1e !important;
+  border: 1px solid #333;
+}
+html[data-bs-theme="dark"] pre code {
+  color: #d4d4d4;
+  background: transparent;
+}
+h4 { font-size: 16px; margin-top: 24px;}
+h3 { font-size: 18px; margin-top: 24px;}
+h2 { font-size: 22px; margin-top: 24px;}
+h1 { font-size: 26px; margin-top: 24px;}
+</style>
