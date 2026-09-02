@@ -3,23 +3,101 @@
 DIVA - учебное приложение с 13 лабораторными работами по уязвимостям Android.
 
 #### Список заданий
+<style>
+.task-table { border-collapse: collapse; }
+.task-table th, .task-table td { padding: 10px 16px; border: 1px solid #ccc; text-align: left; }
+</style>
 
-| # | Задание | Класс(ы) | Тип уязвимости |
-|---|---|---|---|
-| [d1](#пример-1-insecure-logging-d1) | Insecure Logging | `LogActivity` | Логирование CC в logcat |
-| [d2](#пример-2-hardcoding-issues-d2) | Hardcode Issues Part 1 | `HardcodeActivity` | Секрет захардкожен в Java |
-| [d3](#пример-3-insecure-data-storage-part-1-d3) | Insecure Data Storage Part 1 | `InsecureDataStorage1Activity` | SharedPreferences plaintext |
-| [d4](#пример-4-insecure-data-storage-part-2-d4) | Insecure Data Storage Part 2 | `InsecureDataStorage2Activity` | SQLite без шифрования + SQL-инъекция в INSERT |
-| [d5](#пример-5-insecure-data-storage-part-3-d5) | Insecure Data Storage Part 3 | `InsecureDataStorage3Activity` | Файл temp в dataDir |
-| [d6](#пример-6-insecure-data-storage-part-4-d6) | Insecure Data Storage Part 4 | `InsecureDataStorage4Activity` | Файл на external storage |
-| [d7](#пример-7-sql-injection-d7) | SQL Injection | `SQLInjectionActivity` | SQL-инъекция через rawQuery |
-| [d8](#пример-8-input-validation-part-2-d8) | Input Validation Part 2 | `InputValidation2URISchemeActivity` | WebView + arbitrary URI |
-| [d9](#пример-9-access-control-part-1-d9) | Access Control Part 1 | `AccessControl1Activity` -> `APICredsActivity` | Hardcoded API-креды через implicit intent |
-| [d10](#пример-10-access-control-part-2-d10) | Access Control Part 2 | `APICreds2Activity` | PIN-флаг из intent extra (`check_pin`) контролируется вызывающим |
-| [d11](#пример-11-access-control-part-3-d11) | Access Control Part 3 | `AccessControl3Activity` + `AccessControl3NotesActivity` + `NotesProvider` | PIN в plaintext + exported ContentProvider |
-| [d12](#пример-12-hardcode-issues-part-2---jni-d12) | Hardcode Issues Part 2 | `Hardcode2Activity` + `DivaJni` | Секрет в нативной библиотеке (.so) |
-| [d13](#пример-13-input-validation-part-3-d13) | Input Validation Part 3 | `InputValidation3Activity` + `DivaJni` | Проверка пароля в нативной библиотеке |
+<table class="task-table">
+  <tr>
+    <th>#</th>
+    <th>Задание</th>
+    <th>Класс(ы)</th>
+    <th>Тип уязвимости</th>
+  </tr>
+  <tr>
+    <td><a href="#пример-1-insecure-logging-d1">d1</a></td>
+    <td>Insecure Logging</td>
+    <td><code>LogActivity</code></td>
+    <td>Логирование CC в logcat</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-2-hardcoding-issues-d2">d2</a></td>
+    <td>Hardcode Issues Part 1</td>
+    <td><code>HardcodeActivity</code></td>
+    <td>Секрет захардкожен в Java</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-3-insecure-data-storage-part-1-d3">d3</a></td>
+    <td>Insecure Data Storage Part 1</td>
+    <td><code>InsecureDataStorage1Activity</code></td>
+    <td>SharedPreferences plaintext</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-4-insecure-data-storage-part-2-d4">d4</a></td>
+    <td>Insecure Data Storage Part 2</td>
+    <td><code>InsecureDataStorage2Activity</code></td>
+    <td>SQLite без шифрования + SQL-инъекция в INSERT</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-5-insecure-data-storage-part-3-d5">d5</a></td>
+    <td>Insecure Data Storage Part 3</td>
+    <td><code>InsecureDataStorage3Activity</code></td>
+    <td>Файл temp в dataDir</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-6-insecure-data-storage-part-4-d6">d6</a></td>
+    <td>Insecure Data Storage Part 4</td>
+    <td><code>InsecureDataStorage4Activity</code></td>
+    <td>Файл на external storage</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-7-sql-injection-d7">d7</a></td>
+    <td>SQL Injection</td>
+    <td><code>SQLInjectionActivity</code></td>
+    <td>SQL-инъекция через rawQuery</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-8-input-validation-part-2-d8">d8</a></td>
+    <td>Input Validation Part 2</td>
+    <td><code>InputValidation2URISchemeActivity</code></td>
+    <td>WebView + arbitrary URI</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-9-access-control-part-1-d9">d9</a></td>
+    <td>Access Control Part 1</td>
+    <td><code>AccessControl1Activity</code> -> <code>APICredsActivity</code></td>
+    <td>Hardcoded API-креды через implicit intent</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-10-access-control-part-2-d10">d10</a></td>
+    <td>Access Control Part 2</td>
+    <td><code>APICreds2Activity</code></td>
+    <td>PIN-флаг из intent extra (<code>check_pin</code>) контролируется вызывающим</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-11-access-control-part-3-d11">d11</a></td>
+    <td>Access Control Part 3</td>
+    <td><code>AccessControl3Activity</code> + <code>AccessControl3NotesActivity</code> + <code>NotesProvider</code></td>
+    <td>PIN в plaintext + exported ContentProvider</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-12-hardcode-issues-part-2---jni-d12">d12</a></td>
+    <td>Hardcode Issues Part 2</td>
+    <td><code>Hardcode2Activity</code> + <code>DivaJni</code></td>
+    <td>Секрет в нативной библиотеке (.so)</td>
+  </tr>
+  <tr>
+    <td><a href="#пример-13-input-validation-part-3-d13">d13</a></td>
+    <td>Input Validation Part 3</td>
+    <td><code>InputValidation3Activity</code> + <code>DivaJni</code></td>
+    <td>Проверка пароля в нативной библиотеке</td>
+  </tr>
+</table>
 
+
+---
+<a id="пример-1-insecure-logging-d1"></a>
 #### Пример 1: Insecure Logging (d1)
 
 ```java
@@ -50,7 +128,8 @@ adb logcat -d | grep diva-log
 Log.e("diva-log", "Error while processing transaction with credit card: ****" + creditCardNumber.substring(12));
 ```
 
-
+---
+<a id="пример-2-hardcoding-issues-d2"></a>
 #### Пример 2: Hardcoding Issues (d2)
 
 ```java
@@ -75,6 +154,8 @@ public void access(View view) {
 
 Если приложению все же необходимо хранить чувствительные данные локально, следует использовать механизмы, предназначенные для их защиты. Например, криптографические ключи можно хранить с помощью Android Keystore. Однако локальное защищенное хранилище не превращает секрет внутри клиентского приложения в полностью недоступный для пользователя: поэтому критичные серверные секреты в APK хранить не следует.
 
+---
+<a id="пример-3-insecure-data-storage-part-1-d3"></a>
 #### Пример 3: Insecure Data Storage Part 1 (d3)
 
 ```java
@@ -118,7 +199,8 @@ EncryptedSharedPreferences.create(
 );
 ```
 
-
+---
+<a id="пример-4-insecure-data-storage-part-2-d4"></a>
 #### Пример 4: Insecure Data Storage Part 2 (d4)
 
 ```java
@@ -165,7 +247,8 @@ thisIsLogin|thisIsPassword
 mDB.execSQL("INSERT INTO myuser VALUES (?, ?)", new String[]{user, pwd});
 ```
 
-
+---
+<a id="пример-5-insecure-data-storage-part-3-d5"></a>
 #### Пример 5: Insecure Data Storage Part 3 (d5)
 
 ```java
@@ -207,7 +290,8 @@ fos.write((user + ":" + pwd).getBytes());
 fos.close();
 ```
 
-
+---
+<a id="пример-6-insecure-data-storage-part-4-d6"></a>
 #### Пример 6: Insecure Data Storage Part 4 (d6)
 
 ```java
@@ -242,7 +326,8 @@ cat /sdcard/.uinfo.txt
 FileOutputStream fos = openFileOutput("credentials", Context.MODE_PRIVATE);
 ```
 
-
+---
+<a id="пример-7-sql-injection-d7"></a>
 #### Пример 7: SQL Injection (d7)
 
 ```java
@@ -283,7 +368,8 @@ public void search(View view) {
 db.rawQuery("SELECT * FROM sqliuser WHERE user = ?", new String[]{userInput});
 ```
 
-
+---
+<a id="пример-8-input-validation-part-2-d8"></a>
 #### Пример 8: Input Validation Part 2 (d8)
 
 ```java
@@ -324,7 +410,8 @@ if (!"http".equals(uri.getScheme()) && !"https".equals(uri.getScheme())) {
 wview.loadUrl(uri.toString());
 ```
 
-
+---
+<a id="пример-9-access-control-part-1-d9"></a>
 #### Пример 9: Access Control Part 1 (d9)
 
 ```java
@@ -368,7 +455,8 @@ Intent i = new Intent("jakhar.aseem.diva.action.VIEW_CREDS");
 i.setPackage("jakhar.aseem.diva");
 ```
 
-
+---
+<a id="пример-10-access-control-part-2-d10"></a>
 #### Пример 10: Access Control Part 2 (d10)
 
 ```java
@@ -417,7 +505,8 @@ adb shell am start -a jakhar.aseem.diva.action.VIEW_CREDS2 --ez check_pin false
 
 **Исправление:** Не доверять флагу из intent - требовать PIN всегда, валидировать на сервере.
 
-
+---
+<a id="пример-11-access-control-part-3-d11"></a>
 #### Пример 11: Access Control Part 3 (d11)
 
 ```xml
@@ -442,7 +531,6 @@ static {
     urimatcher.addURI(AUTHORITY, TABLE, 1);
     urimatcher.addURI(AUTHORITY, "notes/#", 2);
 }
-
 ```
 
 ```
@@ -484,7 +572,8 @@ adb shell cat /data/data/jakhar.aseem.diva/shared_prefs/jakhar.aseem.diva_prefer
 
 2. Для PIN - не хранить в plaintext, хешировать (bcrypt/Argon2) или держать в Android Keystore.
 
-
+---
+<a id="пример-12-hardcode-issues-part-2---jni-d12"></a>
 #### Пример 12: Hardcode Issues Part 2 - JNI (d12)
 
 ```java
@@ -557,7 +646,8 @@ Contents of section .rodata:
 
 **Исправление:** Не хардкодить секреты вообще. Использовать серверную валидацию, Android Keystore, или dynamic loading с обфускацией (обфускация - не защита).
 
-
+---
+<a id="пример-13-input-validation-part-3-d13"></a>
 #### Пример 13: Input Validation Part 3 (d13)
 
 ```java
@@ -671,3 +761,29 @@ Success
 ```
 
 Осталось ввести что-либо, кроме правильного пароля, и увидеть пройденную проверку
+
+<style>
+pre {
+  padding: 12px 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+html[data-bs-theme="light"] pre {
+  background: #f5f5f5 !important;
+  border: 1px solid #ddd;
+}
+html[data-bs-theme="light"] pre code {
+  color: #24292e;
+  background: transparent;
+}
+
+html[data-bs-theme="dark"] pre {
+  background: #1e1e1e !important;
+  border: 1px solid #333;
+}
+html[data-bs-theme="dark"] pre code {
+  color: #d4d4d4;
+  background: transparent;
+}
+</style>
